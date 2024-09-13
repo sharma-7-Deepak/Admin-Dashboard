@@ -1,15 +1,13 @@
-// User data and tasks will be stored in localStorage
 
-// Sample users
 const users = [
     { username: 'admin', password: 'admin123', role: 'admin' },
     { username: 'employee', password: 'emp123', role: 'employee' }
 ];
 
-// Initialize tasks array
+
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Get elements
+
 const loginSection = document.getElementById('login-section');
 const adminDashboard = document.getElementById('admin-dashboard');
 const employeeDashboard = document.getElementById('employee-dashboard');
@@ -19,7 +17,6 @@ const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
 const employeeTaskList = document.getElementById('employee-task-list');
 
-// Login button click event
 loginBtn.addEventListener('click', function () {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -41,7 +38,7 @@ loginBtn.addEventListener('click', function () {
     }
 });
 
-// Admin creates a new task
+
 taskForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const taskTitle = document.getElementById('task-title').value;
@@ -60,7 +57,7 @@ taskForm.addEventListener('submit', function (e) {
     renderTasks();
 });
 
-// Render tasks for admin
+
 function renderTasks() {
     taskList.innerHTML = '';
     tasks.forEach(task => {
@@ -70,7 +67,6 @@ function renderTasks() {
     });
 }
 
-// Load tasks for employees
 function loadEmployeeTasks(username) {
     employeeTaskList.innerHTML = '';
     const employeeTasks = tasks.filter(task => task.employee === username);
