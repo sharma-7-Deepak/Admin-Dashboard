@@ -1,58 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development Team - Progress & Attendance</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<style>section {
-    background-color: white;
-    margin: 20px;
+    <link rel="shortcut icon" href="image.png" type="image/x-icon">
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         
+            background: linear-gradient(90deg, rgba(31, 31, 98, 1) 0%, rgb(24, 145, 169) 100%, rgba(2, 0, 36, 1) 100%);
+            color: white;
+        }
+
+     
+        .sidebar {
+            background-color: rgba(0, 0, 36, 0.9); 
+            width: 20%;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white; 
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #18a7b8;
+        }
+
+    
+        .calendar {
+            margin-top: 20px;
+        }
+
+        .calendar h3 {
+            color: #18a7b8; 
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #calendar th,
+        #calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            color: white; 
+        }
+
+        #calendar th {
+            background-color: #18a7b8;
+        }
+
+        #calendar td {
+            background-color: rgba(255, 255, 255, 0.1); 
+        }
+
+        
+        .content {
+            margin-left: 22%;
+            padding: 20px;
+            width: 75%;
+        }
+
+       
+section {
+    background-color: rgba(255, 255, 255, 0.2); 
+    margin: 20px auto; 
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%; 
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: left;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.5s ease, left 0.5s ease, right 0.5s ease; /* Transition width, left, and right */
 }
 
-section h2 {
-    color: #333;
+
+section:hover {
+    width: 80%; 
+    left: -10%;
+    right: -10%; 
+    max-width: 100vw; 
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
 
-ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
+        section h2 {
+            color: #18a7b8; 
+        }
 
-ul li:last-child {
-    border-bottom: none;
-}
-</style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+
+        .employee-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .employee-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .employee-name {
+            font-weight: bold;
+            color: white;
+        }
+
+        .linkedin-logo {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+
+        .linkedin-link {
+            text-decoration: none;
+            color: #18a7b8;
+        }
+
+
+        #team-leader {
+            background-color: rgba(255, 255, 255, 0.2); /* Slight transparency for team leader section */
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+     
+        section {
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+        }
+
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        h1{
+            margin-left: 21%;
+        }
+    </style>
+</head>
+
 <body>
-    <header>
-        <h1>Development Team Progress & Attendance</h1>
-    </header>
-
-    <section id="progress-section">
-        <h2>Progress</h2>
+    <!-- Sidebar with Calendar and Quick Links -->
+    <aside class="sidebar">
+        <h2>Quick Links</h2>
         <ul>
-            <li>Task 1: Completed</li>
-            <li>Task 2: In Progress</li>
-            <li>Task 3: Not Started</li>
+            <li><a href="#team-leader">Team Leader</a></li>
+            <li><a href="#progress-section">Progress</a></li>
+            <li><a href="#attendance-section">Attendance</a></li>
         </ul>
-    </section>
 
-    <section id="attendance-section">
-        <h2>Attendance</h2>
-        <ul>
-            <li>John Doe: Present</li>
-            <li>Jane Smith: Absent</li>
-            <li>Mike Johnson: Present</li>
-        </ul>
-    </section>
+        <div class="calendar">
+            <h3>Current Month</h3>
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                   
+                </tbody>
+            </table>
+        </div>
+    </aside>
+
+    <div class="content">
+        <header>
+            <h1>Development Team Progress & Attendance</h1>
+        </header>
+
+
+        <section id="team-leader">
+            <h2>Team Leader</h2>
+            <ul>
+                <li>
+                    <img src="dummy-person.jpg" alt="Team Leader" class="employee-photo">
+                    <div class="employee-details">
+                        <span class="employee-name">Deepak Sharma & Bilakshan Purohit</span>
+                        <span>Team Leader - Present</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png"
+                            alt="LinkedIn" class="linkedin-logo"><img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png"
+                            alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="progress-section">
+            <h2>Progress</h2>
+            <ul>
+                <li>Task 1: Completed</li>
+                <li>Task 2: In Progress</li>
+                <li>Task 3: Not Started</li>
+            </ul>
+        </section>
+
+        <section id="attendance-section">
+            <h2>Attendance</h2>
+            <ul>
+                <li>
+                    <img src="dummy-person.jpg" alt="John Doe" class="employee-photo">
+                    <div class="employee-details">
+                        <span class="employee-name">JaiVeer</span>
+                        <span>Present</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png"
+                            alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                </li>
+                <li>
+                    <img src="dummy-person.jpg" alt="Jane Smith" class="employee-photo">
+                    <div class="employee-details">
+                        <span class="employee-name">Ram Das</span>
+                        <span>Absent</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png"
+                            alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                </li>
+                <li>
+                    <img src="dummy-person.jpg" alt="Mike Johnson" class="employee-photo">
+                    <div class="employee-details">
+                        <span class="employee-name">Rohit</span>
+                        <span>Present</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                        <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png"
+                            alt="LinkedIn" class="linkedin-logo">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function generateCalendar() {
+            const calendarBody = document.getElementById("calendar-body");
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDay = new Date(year, month, 1).getDay();
+
+          
+            calendarBody.innerHTML = "";
+
+            let date = 1;
+
+          
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement("tr");
+
+  
+                for (let j = 0; j < 7; j++) {
+                    let cell = document.createElement("td");
+
+                    if (i === 0 && j < firstDay) {
+                        cell.innerHTML = "";
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        cell.innerHTML = date;
+                        date++;
+                    }
+
+                    row.appendChild(cell);
+                }
+
+                calendarBody.appendChild(row);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", generateCalendar);
+    </script>
 </body>
+
 </html>
