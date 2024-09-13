@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Team - Progress & Attendance</title>
+    
+    <style>
+        /* Basic Styling for Body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for sections */
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+            width: 300px; /* Start with a smaller width */
+            overflow: hidden;
+            transition: width 0.5s ease; /* Animation for expanding width */
+        }
+
+        section:hover {
+            width: 100vw; /* Expand to full screen horizontally when hovered */
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Style for team member photo and details */
+        .employee-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .employee-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .employee-name {
+            font-weight: bold;
+        }
+
+        .linkedin-logo {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+
+        .linkedin-link {
+            text-decoration: none;
+            color: #0077b5; /* LinkedIn blue */
+        }
+
+        /* Team Leader Section */
+        #team-leader {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Animation to slide in sections from left */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Apply the slide in animation when the page loads */
+        section {
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+        }
+        .back-button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="" class="back-button"> -->
+        <h1>Development Team Progress & Attendance</h1>
+    </header>
+
+    <!-- Team Leader Section -->
+    <section id="team-leader">
+        <h2>Team Leader</h2>
+        <ul>
+            <li>
+                <img src="dummy-person.jpg" alt="Team Leader" class="employee-photo">
+                <div class="employee-details">
+                    <span class="employee-name">Alex Leader</span>
+                    <span>Team Leader - Present</span>
+                </div>
+                <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                    <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" alt="LinkedIn" class="linkedin-logo">
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress-section">
+        <h2>Progress</h2>
+        <ul>
+            <li>Task 1: Completed</li>
+            <li>Task 2: In Progress</li>
+            <li>Task 3: Not Started</li>
+        </ul>
+    </section>
+
+    <!-- Attendance Section -->
+    <section id="attendance-section">
+        <h2>Attendance</h2>
+        <ul>
+            <li>
+                <img src="dummy-person.jpg" alt="John Doe" class="employee-photo">
+                <div class="employee-details">
+                    <span class="employee-name">John Doe</span>
+                    <span>Present</span>
+                </div>
+                <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                    <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" alt="LinkedIn" class="linkedin-logo">
+                </a>
+            </li>
+            <li>
+                <img src="dummy-person.jpg" alt="Jane Smith" class="employee-photo">
+                <div class="employee-details">
+                    <span class="employee-name">Jane Smith</span>
+                    <span>Absent</span>
+                </div>
+                <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                    <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" alt="LinkedIn" class="linkedin-logo">
+                </a>
+            </li>
+            <li>
+                <img src="dummy-person.jpg" alt="Mike Johnson" class="employee-photo">
+                <div class="employee-details">
+                    <span class="employee-name">Mike Johnson</span>
+                    <span>Present</span>
+                </div>
+                <a href="https://www.linkedin.com/in/deepak-sharma-948505306/" target="_blank" class="linkedin-link">
+                    <img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" alt="LinkedIn" class="linkedin-logo">
+                </a>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

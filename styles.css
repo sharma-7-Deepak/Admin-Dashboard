@@ -1,0 +1,107 @@
+body {
+    font-family: cursive;
+    background: rgb(31,31,98);
+    background: linear-gradient(90deg, rgba(31,31,98,1) 0%, rgb(24, 145, 169) 100%, rgba(2,0,36,1) 100%);
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    color: #fff;
+    padding: 10px;
+}
+h1{
+    color: azure;
+}
+.logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50px;
+    box-shadow:2px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container {
+    background: rgb(31,31,98);
+background: linear-gradient(90deg, rgba(31,31,98,1) 0%, rgba(16,115,135,1) 100%, rgba(2,0,36,1) 100%);
+    padding: 20px;
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    color: #a19e9e;
+}
+
+.dashboard {
+    margin-top: 50px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+   
+}
+
+button {
+    padding: 10px 20px;
+    background: rgb(31,31,98);
+background: linear-gradient(90deg, rgba(31,31,98,1) 0%, rgba(16,115,135,1) 100%, rgba(2,0,36,1) 100%);
+    color:  #a19e9e;
+    border: none;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+li {
+    background-color: #e0e0e0;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+#teams-section {
+    background: rgb(31,31,98);
+    background: linear-gradient(90deg, rgba(31,31,98,1) 0%, rgba(16,115,135,1) 100%, rgba(2,0,36,1) 100%);
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#team-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#team-list li {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#team-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+#team-list li:hover {
+    background: rgb(31,31,98);
+    background: linear-gradient(90deg, rgba(31,31,98,1) 0%, rgba(16,115,135,1) 100%, rgba(2,0,36,1) 100%);
+    color: #fff;
+   
+}
+#team-list :hover{
+    color: azure;
+}
+
